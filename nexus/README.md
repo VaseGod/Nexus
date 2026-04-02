@@ -1,6 +1,6 @@
 # NEXUS
 
-> **Natural-language EXecution and Unified Scheduling framework** —
+> **Natural-language Execution and Unified Scheduling framework** —
 > A production-grade autonomous agent framework with hierarchical coordination,
 > 3-layer memory, speculative decoding, edge intelligence, and enterprise security
 > hardening. Built as a TypeScript/Python monorepo, ready to deploy on AWS.
