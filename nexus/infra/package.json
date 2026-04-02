@@ -1,0 +1,15 @@
+{
+  "name": "@nexus/infra",
+  "version": "0.1.0",
+  "private": true,
+  "type": "module",
+  "scripts": { "build": "tsc", "preview": "pulumi preview", "up": "pulumi up", "destroy": "pulumi destroy" },
+  "dependencies": {
+    "@pulumi/pulumi": "^3.100.0",
+    "@pulumi/aws": "^6.30.0",
+    "@pulumi/awsx": "^2.7.0"
+  },
+  "devDependencies": {
+    "typescript": "^5.4.0"
+  }
+}

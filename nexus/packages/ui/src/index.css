@@ -1,0 +1,81 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  body {
+    @apply bg-nexus-bg text-nexus-text;
+  }
+
+  ::-webkit-scrollbar {
+    width: 6px;
+  }
+
+  ::-webkit-scrollbar-track {
+    @apply bg-nexus-bg;
+  }
+
+  ::-webkit-scrollbar-thumb {
+    @apply bg-nexus-border rounded-full;
+  }
+}
+
+@layer components {
+  .card {
+    @apply bg-nexus-surface border border-nexus-border rounded-lg p-4;
+  }
+
+  .badge {
+    @apply inline-flex items-center px-2 py-0.5 rounded-full text-xs font-medium;
+  }
+
+  .badge-success {
+    @apply bg-nexus-success/20 text-nexus-success;
+  }
+
+  .badge-warning {
+    @apply bg-nexus-warning/20 text-nexus-warning;
+  }
+
+  .badge-danger {
+    @apply bg-nexus-danger/20 text-nexus-danger;
+  }
+
+  .badge-accent {
+    @apply bg-nexus-accent/20 text-nexus-accent-bright;
+  }
+
+  .sidebar-link {
+    @apply flex items-center gap-3 px-4 py-2.5 text-sm text-nexus-muted
+           hover:text-nexus-text hover:bg-nexus-border/50 rounded-lg
+           transition-all duration-200;
+  }
+
+  .sidebar-link.active {
+    @apply text-nexus-accent-bright bg-nexus-accent/10 border-l-2 border-nexus-accent;
+  }
+
+  .stat-card {
+    @apply card flex flex-col gap-1;
+  }
+
+  .stat-value {
+    @apply text-2xl font-bold text-nexus-text;
+  }
+
+  .stat-label {
+    @apply text-xs text-nexus-muted uppercase tracking-wider;
+  }
+
+  .terminal-line {
+    @apply font-mono text-sm leading-relaxed text-nexus-muted;
+  }
+
+  .terminal-line .timestamp {
+    @apply text-nexus-accent-bright;
+  }
+
+  .terminal-line .event-type {
+    @apply text-nexus-success font-medium;
+  }
+}

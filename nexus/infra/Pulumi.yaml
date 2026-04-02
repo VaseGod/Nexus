@@ -1,0 +1,3 @@
+name: nexus-infra
+runtime: nodejs
+description: NEXUS Infrastructure — AWS ECS, S3, DynamoDB, SQS

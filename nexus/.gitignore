@@ -1,0 +1,59 @@
+# Dependencies
+node_modules/
+.pnpm-store/
+
+# Build output
+dist/
+build/
+*.tsbuildinfo
+
+# Environment
+.env
+.env.local
+.env.production
+
+# Python
+__pycache__/
+*.pyc
+*.pyo
+.venv/
+venv/
+*.egg-info/
+
+# Model weights
+*.gguf
+*.bin
+*.safetensors
+
+# IDE
+.vscode/
+.idea/
+*.swp
+*.swo
+
+# Pulumi
+/infra/.pulumi/
+/infra/Pulumi.*.yaml
+
+# OS
+.DS_Store
+Thumbs.db
+
+# Testing
+coverage/
+.pytest_cache/
+htmlcov/
+
+# Logs
+*.log
+logs/
+
+# Memory data (runtime)
+/memory/topics/
+/memory/transcripts/
+/memory/quarantine/
+/memory/vectors/
+/memory/compaction-log.jsonl
+
+# Turbo
+.turbo/

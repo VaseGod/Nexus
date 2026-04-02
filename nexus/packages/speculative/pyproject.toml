@@ -1,0 +1,27 @@
+[project]
+name = "nexus-aurora-controller"
+version = "0.1.0"
+description = "NEXUS Aurora Speculative Decoding Controller"
+requires-python = ">=3.11"
+dependencies = [
+    "fastapi>=0.111.0",
+    "uvicorn>=0.30.0",
+    "structlog>=24.1.0",
+    "httpx>=0.27.0",
+    "pydantic>=2.7.0",
+]
+
+[project.optional-dependencies]
+training = [
+    "torch>=2.3.0",
+    "transformers>=4.41.0",
+    "peft>=0.11.0",
+]
+dev = [
+    "pytest>=8.0.0",
+    "pytest-asyncio>=0.23.0",
+]
+
+[tool.pytest.ini_options]
+asyncio_mode = "auto"
+testpaths = ["tests"]

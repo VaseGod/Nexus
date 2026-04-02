@@ -1,0 +1,76 @@
+version: '3.9'
+
+services:
+  api:
+    build:
+      context: .
+      dockerfile: packages/api/Dockerfile
+    ports:
+      - '3000:3000'
+    env_file: .env
+    depends_on:
+      - compaction-worker
+      - aurora-controller
+      - edge-server
+    volumes:
+      - memory-data:/app/memory
+    restart: unless-stopped
+
+  compaction-worker:
+    build:
+      context: .
+      dockerfile: packages/memory/workers/Dockerfile
+    ports:
+      - '8001:8001'
+    env_file: .env
+    volumes:
+      - memory-data:/app/memory
+    restart: unless-stopped
+
+  aurora-controller:
+    build:
+      context: .
+      dockerfile: packages/speculative/Dockerfile
+    ports:
+      - '8002:8002'
+    env_file: .env
+    volumes:
+      - model-data:/models
+    restart: unless-stopped
+
+  edge-server:
+    build:
+      context: .
+      dockerfile: packages/edge/Dockerfile
+    ports:
+      - '8003:8003'
+    env_file: .env
+    volumes:
+      - model-data:/models
+    restart: unless-stopped
+
+  kairos-daemon:
+    build:
+      context: .
+      dockerfile: packages/daemon/Dockerfile
+    env_file: .env
+    depends_on:
+      - api
+    volumes:
+      - memory-data:/app/memory
+    restart: unless-stopped
+
+  ui:
+    build:
+      context: .
+      dockerfile: packages/ui/Dockerfile
+    ports:
+      - '5173:5173'
+    env_file: .env
+    depends_on:
+      - api
+    restart: unless-stopped
+
+volumes:
+  memory-data:
+  model-data:
